@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django_fastdev",
     "crispy_forms",
     "crispy_bootstrap5",
+    "django_extensions",
     # apps
     "app",
 ]
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "app.middleware.SuperuserRequiredMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
