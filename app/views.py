@@ -20,4 +20,5 @@ class FeedingLogCreateView(SuccessMessageMixin, CreateView):
         context = super().get_context_data(**kwargs)
         context["total_ml_today"] = FeedingLog.total_ml_today()
         context["today_date"] = timezone.now().date()
+        context["last_submitted_log"] = FeedingLog.last_submitted_log
         return context

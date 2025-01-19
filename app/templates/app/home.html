@@ -10,8 +10,22 @@
     </form>
     <div class="card mt-3">
         <div class="card-body">
-            Total today ({{ today_date }}) -
-            <span class="fs-3">{{ total_ml_today }} ml</span>
+            <div class="card-title">Total today ({{ today_date }})</div>
+            <div class="card-text text-center">
+                <span class="fs-3">{{ total_ml_today }} ml</span>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="card-title">Last submitted log - {{ last_submitted_log.date }} ml</div>
+            <div class="card-text">
+                <span>Date: {{ last_submitted_log.date }}</span>
+                <br>
+                <span>Time: {{ last_submitted_log.time }}</span>
+                <br>
+                <span>Amount: {{ last_submitted_log.amount_ml }} ml</span>
+            </div>
         </div>
     </div>
 {% endblock content %}
