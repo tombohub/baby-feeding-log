@@ -8,7 +8,7 @@
             <button class="btn btn-primary">Submit</button>
         </div>
     </form>
-    <div class="card mt-3">
+    <div class="card">
         <div class="card-body">
             <div class="card-title">Total today ({{ today_date }})</div>
             <div class="card-text text-center">
@@ -16,16 +16,18 @@
             </div>
         </div>
     </div>
-    <div class="card mt-3">
-        <div class="card-body">
-            <div class="card-title">Last submitted log - {{ last_submitted_log.date }} ml</div>
-            <div class="card-text">
-                <span>Date: {{ last_submitted_log.date }}</span>
-                <br>
-                <span>Time: {{ last_submitted_log.time }}</span>
-                <br>
-                <span>Amount: {{ last_submitted_log.amount_ml }} ml</span>
+    {% if last_submitted_log %}
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Last submitted log - {{ last_submitted_log.date }} ml</div>
+                <div class="card-text">
+                    <span>Date: {{ last_submitted_log.date }}</span>
+                    <br>
+                    <span>Time: {{ last_submitted_log.time }}</span>
+                    <br>
+                    <span>Amount: {{ last_submitted_log.amount_ml }} ml</span>
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock content %}
