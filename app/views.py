@@ -14,7 +14,7 @@ class FeedingLogCreateView(SuccessMessageMixin, CreateView):
     form_class = FeedingLogForm
     template_name = "app/home.html"
     success_url = reverse_lazy("home")
-    success_message = "Feeding log created"
+    success_message = "Feeding log created. Time: %(time)s"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
