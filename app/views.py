@@ -7,6 +7,7 @@ from django.views.generic import CreateView
 
 from .forms import FeedingLogForm
 from .models import FeedingLog
+from .utils import get_local_date
 
 
 class FeedingLogCreateView(SuccessMessageMixin, CreateView):
@@ -19,6 +20,6 @@ class FeedingLogCreateView(SuccessMessageMixin, CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["total_ml_today"] = FeedingLog.total_ml_today()
-        context["today_date"] = timezone.now().date()
+        context["today_date"] = get_local_date()
         context["last_submitted_log"] = FeedingLog.last_submitted_log
         return context

@@ -1,5 +1,9 @@
+from zoneinfo import ZoneInfo
+
 from django.db import models
 from django.utils import timezone
+
+from .utils import get_local_date
 
 # Create your models here.
 
@@ -19,7 +23,7 @@ class FeedingLog(BaseModel):
 
     @classmethod
     def total_ml_today(cls):
-        today = timezone.now().date()
+        today = get_local_date()
         total = cls.objects.filter(date=today).aggregate(
             total_ml=models.Sum("amount_ml")
         )["total_ml"]
